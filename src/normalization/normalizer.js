@@ -21,24 +21,31 @@ function normalizeData(rawData) {
         const members = chat.threadProperties?.members || []; 
         const rawMessages = chat.MessageList || []; 
 
-        const normalizedMessages = rawMessages.map(msg => {
-            const identity = resolveIdentity(msg, chatId);
-            
-            // Map createdDateTime from originalarrivaltime
-            const createdDateTime = msg.originalarrivaltime ? new Date(msg.originalarrivaltime).toISOString() : null;
+        const normalizedMessages = rawMessages
+    .filter(msg => {
+        const type = msg.messagetype || '';
+        if (type.startsWith('ThreadActivity')) return false;
+        if (type.startsWith('Event')) return false;
+        return true;
+    })
+    .map(msg => {
+        const identity = resolveIdentity(msg, chatId);
+        
+        // Map createdDateTime from originalarrivaltime
+        const createdDateTime = msg.originalarrivaltime ? new Date(msg.originalarrivaltime).toISOString() : null;
 
-            return {
-                id: msg.id,
-                chatId: chatId,
-                createdDateTime: createdDateTime,
-                lastModifiedDateTime: createdDateTime,
-                body: {
-                    contentType: "html",
-                    content: msg.content || ""
-                },
-                ...identity
-            };
-        });
+        return {
+            id: msg.id,
+            chatId: chatId,
+            createdDateTime: createdDateTime,
+            lastModifiedDateTime: createdDateTime,
+            body: {
+                contentType: "html",
+                content: msg.content || ""
+            },
+            ...identity
+        };
+    });
 
         // Derive chat createdDateTime as MIN(createdDateTime of messages)
         const validTimestamps = normalizedMessages
