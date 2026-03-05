@@ -2,15 +2,31 @@
  * Handles pagination and sorting for API results.
  */
 
-function processQuery(items, queryParams) {
+function processQuery(items, queryParams, baseUrl) {
     let result = [...items];
 
-    // 1. $orderby (only createdDateTime supported)
+    // 1. Sorting behavior
+    // Default Graph behavior is often ascending by default if not specified
+    // Sorting must use real createdDateTime and handle nulls (place at end)
     const orderby = queryParams.$orderby;
-    if (orderby === 'createdDateTime' || orderby === 'createdDateTime desc') {
-        result.sort((a, b) => new Date(b.createdDateTime) - new Date(a.createdDateTime));
-    } else if (orderby === 'createdDateTime asc') {
-        result.sort((a, b) => new Date(a.createdDateTime) - new Date(b.createdDateTime));
+    
+    const sortAsc = (a, b) => {
+        if (!a.createdDateTime) return 1;
+        if (!b.createdDateTime) return -1;
+        return new Date(a.createdDateTime) - new Date(b.createdDateTime);
+    };
+
+    const sortDesc = (a, b) => {
+        if (!a.createdDateTime) return 1;
+        if (!b.createdDateTime) return -1;
+        return new Date(b.createdDateTime) - new Date(a.createdDateTime);
+    };
+
+    if (orderby === 'createdDateTime desc') {
+        result.sort(sortDesc);
+    } else {
+        // Default to ascending (or explicit createdDateTime/createdDateTime asc)
+        result.sort(sortAsc);
     }
 
     // 2. $skip
@@ -23,11 +39,23 @@ function processQuery(items, queryParams) {
     const top = parseInt(queryParams.$top) || null;
     let nextLink = null;
     if (top !== null && result.length > top) {
-        // Prepare nextLink logic (simplified for mock)
         const nextSkip = skip + top;
-        // In a real scenario, this would include the full URL
-        // For now, we'll just indicate there's more
-        nextLink = `?$top=${top}&$skip=${nextSkip}`;
+        
+        // Build fully qualified absolute URL for nextLink
+        if (baseUrl) {
+            const url = new URL(baseUrl);
+            // Preserve original query params but update $skip
+            Object.keys(queryParams).forEach(key => {
+                if (key !== '$skip') {
+                    url.searchParams.set(key, queryParams[key]);
+                }
+            });
+            url.searchParams.set('$skip', nextSkip.toString());
+            nextLink = url.toString();
+        } else {
+            nextLink = `?$top=${top}&$skip=${nextSkip}`;
+        }
+        
         result = result.slice(0, top);
     }
 

@@ -16,18 +16,22 @@ function normalizeData(rawData) {
     }
 
     return rawData.conversations.map(chat => {
-        const chatId = chat.id;
+        const chatId = chat.id; // Use original identifier directly from $.conversations[].id
         const topic = chat.displayName || "Untitled Chat";
-        const members = chat.members || []; // Some exports might have members
-        const rawMessages = chat.MessageList || [];
+        const members = chat.threadProperties?.members || []; 
+        const rawMessages = chat.MessageList || []; 
 
         const normalizedMessages = rawMessages.map(msg => {
             const identity = resolveIdentity(msg, chatId);
             
+            // Map createdDateTime from originalarrivaltime
+            const createdDateTime = msg.originalarrivaltime ? new Date(msg.originalarrivaltime).toISOString() : null;
+
             return {
                 id: msg.id,
                 chatId: chatId,
-                createdDateTime: msg.composetime || msg.createdDateTime || new Date().toISOString(),
+                createdDateTime: createdDateTime,
+                lastModifiedDateTime: createdDateTime,
                 body: {
                     contentType: "html",
                     content: msg.content || ""
@@ -36,10 +40,21 @@ function normalizeData(rawData) {
             };
         });
 
+        // Derive chat createdDateTime as MIN(createdDateTime of messages)
+        const validTimestamps = normalizedMessages
+            .map(m => m.createdDateTime)
+            .filter(t => t !== null)
+            .map(t => new Date(t).getTime());
+        
+        const chatCreatedDateTime = validTimestamps.length > 0 
+            ? new Date(Math.min(...validTimestamps)).toISOString() 
+            : null;
+
         return {
             id: chatId,
             topic: topic,
             members: members,
+            createdDateTime: chatCreatedDateTime,
             normalizedMessages: normalizedMessages
         };
     });

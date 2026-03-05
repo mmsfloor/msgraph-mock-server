@@ -1,5 +1,6 @@
 const fs = require('fs-extra');
 const path = require('path');
+const crypto = require('crypto');
 const { normalizeData } = require('../normalization/normalizer');
 const { getExclusionConfig, shouldExcludeChat } = require('../filters/chatFilter');
 
@@ -8,19 +9,36 @@ class DataService {
         this.chats = [];
         this.messages = [];
         this.rawData = null;
+        this.initialFileHash = null;
+        this.initialFileSize = null;
+    }
+
+    async getFileHash(filePath) {
+        const fileBuffer = await fs.readFile(filePath);
+        return crypto.createHash('sha256').update(fileBuffer).digest('hex');
+    }
+
+    async getFileSize(filePath) {
+        const stat = await fs.stat(filePath);
+        return stat.size;
     }
 
     async loadData(filePath) {
         try {
             if (!await fs.pathExists(filePath)) {
-                console.error(`File not found: ${filePath}`);
-                return;
+                console.error(`CRITICAL ERROR: Data file not found at ${filePath}`);
+                process.exit(1);
             }
 
+            // Compute initial hash for integrity guard
+            this.initialFileHash = await this.getFileHash(filePath);
+            this.initialFileSize = await this.getFileSize(filePath);
+
+            // Read original data (read-only)
             const rawData = await fs.readJson(filePath);
             const config = await getExclusionConfig();
 
-            // 1. Filter chats
+            // 1. Filter chats without mutating rawData
             const filteredChats = (rawData.conversations || []).filter(chat => {
                 const chatInfo = {
                     id: chat.id,
@@ -29,7 +47,7 @@ class DataService {
                 return !shouldExcludeChat(chatInfo, config);
             });
 
-            // 2. Normalize data
+            // 2. Normalize data (creates new internal model objects)
             const normalized = normalizeData({ conversations: filteredChats });
 
             // 3. Filter out "no_identity" messages
@@ -46,9 +64,34 @@ class DataService {
                 return acc.concat(chat.normalizedMessages);
             }, []);
 
-            console.log(`Loaded ${this.chats.length} chats and ${this.messages.length} messages.`);
+            // Integrity Check: Verify file has not been modified during normalization
+            const currentHash = await this.getFileHash(filePath);
+            const currentSize = await this.getFileSize(filePath);
+            if (this.initialFileHash !== currentHash) {
+                console.error('FATAL ERROR: Data file integrity violation! File was modified during server startup.');
+                process.exit(1);
+            }
+            if (this.initialFileSize !== currentSize) {
+                console.error('FATAL ERROR: Data file size changed during server startup.');
+                process.exit(1);
+            }
+
+            console.log(`\n--- DATA INTEGRITY VERIFIED ---`);
+            console.log(`Total conversations: ${this.chats.length}`);
+            console.log(`Total messages: ${this.messages.length}`);
+            
+            if (this.chats.length > 0) {
+                const msgCounts = this.chats.map(c => c.normalizedMessages.length);
+                console.log(`Max messages per chat: ${Math.max(...msgCounts)}`);
+                console.log(`Min messages per chat: ${Math.min(...msgCounts)}`);
+            }
+            console.log(`File hash (SHA256): ${currentHash}`);
+            console.log(`File size (bytes): ${currentSize}`);
+            console.log(`-------------------------------\n`);
+
         } catch (error) {
             console.error('Error loading data:', error);
+            process.exit(1);
         }
     }
 

@@ -58,7 +58,10 @@ function shouldExcludeChat(chat, config) {
     if (config.excludeByTopic.includes(topic)) return true;
 
     // Exclude by Contains (partial match)
-    if (config.excludeByContains.some(term => topic.toLowerCase().includes(term.toLowerCase()))) return true;
+    if (config.excludeByContains.some(term => 
+    topic.toLowerCase().includes(term.toLowerCase()) ||
+    id.toLowerCase().includes(term.toLowerCase())
+)) return true;
 
     return false;
 }

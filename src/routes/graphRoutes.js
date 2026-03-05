@@ -11,7 +11,10 @@ const { processQuery } = require('../services/queryProcessor');
 router.get('/me/chats', (req, res) => {
     const chats = dataService.getChats();
     const mapped = chats.map(mapToGraphChat);
-    const { items, nextLink } = processQuery(mapped, req.query);
+    
+    // Construct full base URL for nextLink
+    const fullUrl = `${req.protocol}://${req.get('host')}${req.originalUrl}`;
+    const { items, nextLink } = processQuery(mapped, req.query, fullUrl);
     
     res.json(wrapResponse(items, nextLink));
 });
@@ -33,9 +36,13 @@ router.get('/me/chats/:chatId', (req, res) => {
  * List messages in a specific chat
  */
 router.get('/me/chats/:chatId/messages', (req, res) => {
+    const debug = req.query.debug === 'true';
     const messages = dataService.getMessagesByChatId(req.params.chatId);
-    const mapped = messages.map(mapToGraphMessage);
-    const { items, nextLink } = processQuery(mapped, req.query);
+    const mapped = messages.map(msg => mapToGraphMessage(msg, debug));
+    
+    // Construct full base URL for nextLink
+    const fullUrl = `${req.protocol}://${req.get('host')}${req.originalUrl}`;
+    const { items, nextLink } = processQuery(mapped, req.query, fullUrl);
     
     res.json(wrapResponse(items, nextLink));
 });
@@ -45,12 +52,19 @@ router.get('/me/chats/:chatId/messages', (req, res) => {
  * Delta skeleton for chat messages
  */
 router.get('/me/chats/:chatId/messages/delta', (req, res) => {
+    const debug = req.query.debug === 'true';
     const messages = dataService.getMessagesByChatId(req.params.chatId);
-    const mapped = messages.map(mapToGraphMessage);
-    const { items, nextLink } = processQuery(mapped, req.query);
+    const mapped = messages.map(msg => mapToGraphMessage(msg, debug));
     
-    // Skeleton deltaLink
-    const deltaLink = `?$deltaToken=mock-token-${Date.now()}`;
+    // Construct full base URL for nextLink
+    const fullUrl = `${req.protocol}://${req.get('host')}${req.originalUrl}`;
+    const { items, nextLink } = processQuery(mapped, req.query, fullUrl);
+    
+    // Build fully qualified absolute URL for deltaLink
+    const url = new URL(fullUrl);
+    url.searchParams.set('$deltaToken', `mock-token-${Date.now()}`);
+    const deltaLink = url.toString();
+
     res.json(wrapResponse(items, nextLink, deltaLink));
 });
 
@@ -59,12 +73,19 @@ router.get('/me/chats/:chatId/messages/delta', (req, res) => {
  * Global delta skeleton for messages
  */
 router.get('/messages/delta', (req, res) => {
+    const debug = req.query.debug === 'true';
     const messages = dataService.getAllMessages();
-    const mapped = messages.map(mapToGraphMessage);
-    const { items, nextLink } = processQuery(mapped, req.query);
+    const mapped = messages.map(msg => mapToGraphMessage(msg, debug));
     
-    // Skeleton deltaLink
-    const deltaLink = `?$deltaToken=mock-token-global-${Date.now()}`;
+    // Construct full base URL for nextLink
+    const fullUrl = `${req.protocol}://${req.get('host')}${req.originalUrl}`;
+    const { items, nextLink } = processQuery(mapped, req.query, fullUrl);
+    
+    // Build fully qualified absolute URL for deltaLink
+    const url = new URL(fullUrl);
+    url.searchParams.set('$deltaToken', `mock-token-global-${Date.now()}`);
+    const deltaLink = url.toString();
+
     res.json(wrapResponse(items, nextLink, deltaLink));
 });
 
