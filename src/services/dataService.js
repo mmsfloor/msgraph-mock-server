@@ -53,8 +53,20 @@ class DataService {
             // 3. Filter out "no_identity" messages
             this.chats = normalized.map(chat => {
                 const validMessages = chat.normalizedMessages.filter(msg => msg.identity_type !== 'no_identity');
+                const MY_MRI = "8:live:.cid.YOUR_MRI_HERE";
+                const memberMap = new Map();
+                for (const m of validMessages) {
+                    const id = m.canonical_user_id;
+                    if (!id) continue;
+                    if (id === MY_MRI) continue;
+                    if (!memberMap.has(id)) {
+                        memberMap.set(id, { id, displayName: m.original_displayName || null });
+                    }
+                }
+                const members = Array.from(memberMap.values());
                 return {
                     ...chat,
+                    members,
                     normalizedMessages: validMessages
                 };
             });

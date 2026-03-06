@@ -9,6 +9,7 @@ function mapToGraphChat(chat) {
         createdDateTime: chat.createdDateTime, // Already correctly derived in normalizer
         lastMessagePreview: null,
         chatType: "group",
+        members: Array.isArray(chat.members) ? chat.members : []
     };
 }
 
