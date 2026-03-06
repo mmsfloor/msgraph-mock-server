@@ -15,8 +15,13 @@ function mapToGraphChat(chat) {
 function mapToGraphMessage(message, debug = false) {
     const graphMessage = {
         id: message.id,
+        chatId: message.chatId,
         createdDateTime: message.createdDateTime,
         lastModifiedDateTime: message.lastModifiedDateTime || message.createdDateTime,
+        direction: message.direction || null,
+        message_type: message.message_type || null,
+        reply_to_id: message.reply_to_id || null,
+        media_references: message.media_references || null,
         from: {
             user: {
                 id: message.canonical_user_id,
