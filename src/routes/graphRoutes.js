@@ -26,18 +26,35 @@ router.get('/me/chats', (req, res) => {
 router.get('/me/chats/:chatId', (req, res) => {
     const chat = dataService.getChatById(req.params.chatId);
     if (!chat) {
-        return res.status(404).json({ error: { message: "Chat not found" } });
+        return res.status(404).json({ 
+            error: { 
+                code: "Request_ResourceNotFound",
+                message: "Chat not found" 
+            } 
+        });
     }
     res.json(mapToGraphChat(chat));
 });
 
 /**
- * GET /v1.0/me/chats/{chatId}/messages
+ * GET /v1.0/me/chats/:chatId/messages
  * List messages in a specific chat
  */
 router.get('/me/chats/:chatId/messages', (req, res) => {
     const debug = req.query.debug === 'true';
     const messages = dataService.getMessagesByChatId(req.params.chatId);
+    
+    // Check if chat exists (dataService.getMessagesByChatId returns empty array if not found or no messages)
+    const chat = dataService.getChatById(req.params.chatId);
+    if (!chat) {
+        return res.status(404).json({
+            error: {
+                code: "Request_ResourceNotFound",
+                message: "Chat not found"
+            }
+        });
+    }
+
     const mapped = messages.map(msg => mapToGraphMessage(msg, debug));
     
     // Construct full base URL for nextLink
@@ -48,12 +65,24 @@ router.get('/me/chats/:chatId/messages', (req, res) => {
 });
 
 /**
- * GET /v1.0/me/chats/{chatId}/messages/delta
+ * GET /v1.0/me/chats/:chatId/messages/delta
  * Delta skeleton for chat messages
  */
 router.get('/me/chats/:chatId/messages/delta', (req, res) => {
     const debug = req.query.debug === 'true';
     const messages = dataService.getMessagesByChatId(req.params.chatId);
+
+    // Check if chat exists
+    const chat = dataService.getChatById(req.params.chatId);
+    if (!chat) {
+        return res.status(404).json({
+            error: {
+                code: "Request_ResourceNotFound",
+                message: "Chat not found"
+            }
+        });
+    }
+
     const mapped = messages.map(msg => mapToGraphMessage(msg, debug));
     
     // Construct full base URL for nextLink

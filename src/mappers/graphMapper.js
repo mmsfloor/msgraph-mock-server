@@ -14,24 +14,32 @@ function mapToGraphChat(chat) {
 }
 
 function mapToGraphMessage(message, debug = false) {
+    let userIdentityType = "anonymousGuest";
+    if (message.identity_type === "mri") {
+        userIdentityType = "aadUser";
+    } else if (message.identity_type === "display_only") {
+        userIdentityType = "externalUser";
+    }
+
     const graphMessage = {
         id: message.id,
         chatId: message.chatId,
         createdDateTime: message.createdDateTime,
         lastModifiedDateTime: message.lastModifiedDateTime || message.createdDateTime,
         direction: message.direction || null,
-        message_type: message.message_type || null,
-        reply_to_id: message.reply_to_id || null,
-        media_references: message.media_references || null,
+        messageType: message.message_type || null,
+        replyToId: message.reply_to_id || null,
+        attachments: message.media_references || [],
         from: {
             user: {
                 id: message.canonical_user_id,
-                displayName: message.original_displayName || null
+                displayName: message.original_displayName || null,
+                userIdentityType: userIdentityType
             }
         },
         body: {
-            contentType: message.body.contentType || "html",
-            content: message.body.content || ""
+            contentType: (message.body && message.body.contentType) || "html",
+            content: (message.body && message.body.content) || ""
         }
     };
 

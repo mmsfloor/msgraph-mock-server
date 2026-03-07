@@ -31,25 +31,26 @@ function normalizeData(rawData) {
     .map(msg => {
         const identity = resolveIdentity(msg, chatId);
         const createdDateTime = msg.originalarrivaltime ? new Date(msg.originalarrivaltime).toISOString() : null;
-        const message_type = msg.messagetype || null;
-        const media_references = Array.isArray(msg.amsreferences) && msg.amsreferences.length > 0 ? msg.amsreferences : null;
+        const messageType = msg.messagetype || null;
+        const mediaReferences = Array.isArray(msg.amsreferences) && msg.amsreferences.length > 0 ? msg.amsreferences : null;
         const MY_MRI = "8:live:.cid.YOUR_MRI_HERE";
-        const direction = msg.from == null ? null : (msg.from === MY_MRI ? "OUTBOUND" : "INBOUND");
-        let reply_to_id = null;
+        const sender = msg.from || msg.properties?.importedBy?.RawValue || null;
+        const direction = sender == null ? null : (sender === MY_MRI ? "OUTBOUND" : "INBOUND");
+        let replyToId = null;
         if (typeof msg.content === "string") {
             const m = msg.content.match(/<blockquote[^>]*itemtype=["'][^"']*Reply[^"']*["'][^>]*itemid=["']([^"']+)["']/i);
-            if (m && m[1]) reply_to_id = m[1];
+            if (m && m[1]) replyToId = m[1];
         }
 
         return {
             id: msg.id,
-            chatId: chatId,
-            createdDateTime: createdDateTime,
+            chatId,
+            createdDateTime,
             lastModifiedDateTime: createdDateTime,
             direction,
-            message_type,
-            reply_to_id,
-            media_references,
+            message_type: messageType,
+            reply_to_id: replyToId,
+            media_references: mediaReferences,
             body: {
                 contentType: "html",
                 content: msg.content || ""

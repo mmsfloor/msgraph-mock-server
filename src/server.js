@@ -31,7 +31,28 @@ app.use((req, res, next) => {
 // 3. Register routes under /v1.0 to mimic Graph
 app.use('/v1.0', graphRoutes);
 
-// 4. Default route
+// 4. Error handling for non-existent routes within /v1.0
+app.use('/v1.0', (req, res) => {
+    res.status(404).json({
+        error: {
+            code: "Request_ResourceNotFound",
+            message: "Resource not found"
+        }
+    });
+});
+
+// 5. Global error handler
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({
+        error: {
+            code: "InternalServerError",
+            message: "An internal server error occurred"
+        }
+    });
+});
+
+// 6. Default route
 app.get('/', (req, res) => {
     res.json({
         message: "Microsoft Graph Mock Server",
