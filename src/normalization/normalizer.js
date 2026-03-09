@@ -14,6 +14,8 @@ function normalizeData(rawData) {
     if (!rawData || !rawData.conversations) {
         return [];
     }
+    
+    const MY_MRI = rawData.userId;
 
     return rawData.conversations.map(chat => {
         const chatId = chat.id; // Use original identifier directly from $.conversations[].id
@@ -33,7 +35,6 @@ function normalizeData(rawData) {
         const createdDateTime = msg.originalarrivaltime ? new Date(msg.originalarrivaltime).toISOString() : null;
         const messageType = msg.messagetype || null;
         const mediaReferences = Array.isArray(msg.amsreferences) && msg.amsreferences.length > 0 ? msg.amsreferences : null;
-        const MY_MRI = "8:live:.cid.YOUR_MRI_HERE";
         const sender = msg.from || msg.properties?.importedBy?.RawValue || null;
         const direction = sender == null ? null : (sender === MY_MRI ? "OUTBOUND" : "INBOUND");
         let replyToId = null;
