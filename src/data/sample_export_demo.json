@@ -1,0 +1,665 @@
+{
+  "userId": "8:live:.cid.fa0eecbg590fa001",
+  "exportDate": "2026-03-01T10:00:00",
+  "conversations": [
+    {
+      "id": "19:uni01_abc123def456ghi789jkl012mno345pqr678stu901@thread.v2",
+      "displayName": "NexPath / VoltSMS",
+      "version": 1740000000000,
+      "properties": {
+        "conversationblocked": false,
+        "lastimreceivedtime": "2026-02-20T09:15:00.000Z",
+        "consumptionhorizon": "1740000000000;1740000000000;1234567890123456789",
+        "conversationstatus": null,
+        "onetoonev2threadid": null
+      },
+      "threadProperties": {
+        "membercount": 4,
+        "members": "[\"Export Owner\",\"Unknown User\",\"Unknown User\",\"John Smith\"]",
+        "membersBlocked": null,
+        "membersNicknames": null,
+        "topic": "NexPath / VoltSMS",
+        "picture": null,
+        "description": null,
+        "guidelines": null,
+        "shareJoinLink": null,
+        "joiningEnabled": null,
+        "searchVisible": null,
+        "websiteText": null,
+        "websiteUrl": null,
+        "consumptionhorizons": {
+          "version": "1740000000000",
+          "consumptionhorizons": [
+            { "id": "Export Owner", "consumptionhorizon": "1738000000000;1740000000000;1738000000000" },
+            { "id": "Unknown User", "consumptionhorizon": "1739000000000;1740000000000;1739000000000" }
+          ]
+        }
+      },
+      "MessageList": [
+        {
+          "id": "1738000001000",
+          "displayName": null,
+          "originalarrivaltime": "2026-01-28T08:01:00.000Z",
+          "messagetype": "ThreadActivity/AddMember",
+          "version": 1738000001000,
+          "content": "<addmember><eventtime>1738000001000</eventtime><initiator>8:live:.cid.aaa111bbb222ccc3</initiator><rosterVersion>1738000000900</rosterVersion><target>8:live:.cid.fa0eecbg590fa001</target><detailedtargetinfo><id>8:live:.cid.fa0eecbg590fa001</id></detailedtargetinfo></addmember>",
+          "conversationid": "19:uni01_abc123def456ghi789jkl012mno345pqr678stu901@thread.v2",
+          "from": null,
+          "properties": {},
+          "amsreferences": null
+        },
+        {
+          "id": "1738000100000",
+          "displayName": "John Smith",
+          "originalarrivaltime": "2026-01-28T08:10:00.000Z",
+          "messagetype": "RichText",
+          "version": 1738000100000,
+          "content": "Hey team, good morning",
+          "conversationid": "19:uni01_abc123def456ghi789jkl012mno345pqr678stu901@thread.v2",
+          "from": null,
+          "properties": {
+            "importedBy": {
+              "RawValue": "8:live:.cid.bbb222ccc333ddd4"
+            },
+            "formatVariant": "SFL"
+          },
+          "amsreferences": null
+        },
+        {
+          "id": "1738000200000",
+          "displayName": null,
+          "originalarrivaltime": "2026-01-28T08:15:00.000Z",
+          "messagetype": "RichText/Html",
+          "version": 1738000200000,
+          "content": "<p>We have <strong>Bangladesh OTP</strong> direct route available at 0.0085. Good delivery, tier1 operator. Let me know if interested.</p>",
+          "conversationid": "19:uni01_abc123def456ghi789jkl012mno345pqr678stu901@thread.v2",
+          "from": null,
+          "properties": {
+            "importedBy": {
+              "RawValue": "8:live:.cid.bbb222ccc333ddd4"
+            },
+            "cards": [],
+            "links": "[]",
+            "files": "[]",
+            "formatVariant": "TEAMS",
+            "languageStamp": "languages=en:100;length:80;&detector=Bling"
+          },
+          "amsreferences": []
+        },
+        {
+          "id": "1738000300000",
+          "displayName": null,
+          "originalarrivaltime": "2026-01-28T08:30:00.000Z",
+          "messagetype": "RichText/Html",
+          "version": 1738000300000,
+          "content": "<p>Sounds good, can you share test numbers? We have live BD OTP traffic.</p>",
+          "conversationid": "19:uni01_abc123def456ghi789jkl012mno345pqr678stu901@thread.v2",
+          "from": "8:live:.cid.fa0eecbg590fa001",
+          "properties": {
+            "importedBy": {
+              "RawValue": "8:live:.cid.fa0eecbg590fa001"
+            },
+            "cards": [],
+            "links": "[]",
+            "files": "[]",
+            "formatVariant": "TEAMS"
+          },
+          "amsreferences": []
+        },
+        {
+          "id": "1738000400000",
+          "displayName": null,
+          "originalarrivaltime": "2026-01-28T08:45:00.000Z",
+          "messagetype": "RichText/Html",
+          "version": 1738000400000,
+          "content": "<p>Sure, sending test numbers now. Also we have Egypt Vodafone Promo at 0.0210 if you need.</p>",
+          "conversationid": "19:uni01_abc123def456ghi789jkl012mno345pqr678stu901@thread.v2",
+          "from": null,
+          "properties": {
+            "importedBy": {
+              "RawValue": "8:live:.cid.bbb222ccc333ddd4"
+            },
+            "cards": [],
+            "links": "[]",
+            "files": "[]",
+            "formatVariant": "TEAMS"
+          },
+          "amsreferences": []
+        },
+        {
+          "id": "1738000500000",
+          "displayName": null,
+          "originalarrivaltime": "2026-01-28T09:00:00.000Z",
+          "messagetype": "RichText/UriObject",
+          "version": 1738000500000,
+          "content": "<p><img itemscope=\"png\" itemtype=\"http://schema.skype.com/AMSImage\" src=\"https://us-api.asm.skype.com/v1/objects/0-jhb-d1-fake001ams002ref003/views/imgo\" width=\"1100\" height=\"250\" alt=\"image\" id=\"x_0-jhb-d1-fake001ams002ref003\" itemid=\"0-jhb-d1-fake001ams002ref003\"></p>",
+          "conversationid": "19:uni01_abc123def456ghi789jkl012mno345pqr678stu901@thread.v2",
+          "from": null,
+          "properties": {
+            "importedBy": {
+              "RawValue": "8:live:.cid.bbb222ccc333ddd4"
+            },
+            "cards": [],
+            "links": "[]",
+            "files": "[]",
+            "formatVariant": "TEAMS"
+          },
+          "amsreferences": ["0-jhb-d1-fake001ams002ref003"]
+        },
+        {
+          "id": "1738000600000",
+          "displayName": null,
+          "originalarrivaltime": "2026-01-28T09:10:00.000Z",
+          "messagetype": "RichText/Html",
+          "version": 1738000600000,
+          "content": "<p>Egypt VF price is a bit high for us. Can you do 0.0190?</p>",
+          "conversationid": "19:uni01_abc123def456ghi789jkl012mno345pqr678stu901@thread.v2",
+          "from": "8:live:.cid.fa0eecbg590fa001",
+          "properties": {
+            "importedBy": {
+              "RawValue": "8:live:.cid.fa0eecbg590fa001"
+            },
+            "cards": [],
+            "links": "[]",
+            "files": "[]",
+            "formatVariant": "TEAMS"
+          },
+          "amsreferences": []
+        },
+        {
+          "id": "1738000700000",
+          "displayName": null,
+          "originalarrivaltime": "2026-01-28T09:20:00.000Z",
+          "messagetype": "RichText/Html",
+          "version": 1738000700000,
+          "content": "<blockquote itemscope=\"\" itemtype=\"http://schema.skype.com/Reply\" itemid=\"1738000600000\">\r\n<strong itemprop=\"mri\" itemid=\"8:live:.cid.fa0eecbg590fa001\">Mykhailo</strong><span itemprop=\"time\" itemid=\"1738000600000\"></span>\r\n<p itemprop=\"preview\">Egypt VF price is a bit high for us. Can you do 0.0190?</p>\r\n</blockquote>\r\n<p>Best I can do is 0.0200 for now. Will check with supplier.</p>",
+          "conversationid": "19:uni01_abc123def456ghi789jkl012mno345pqr678stu901@thread.v2",
+          "from": null,
+          "properties": {
+            "importedBy": {
+              "RawValue": "8:live:.cid.bbb222ccc333ddd4"
+            },
+            "cards": [],
+            "links": "[]",
+            "files": "[]",
+            "formatVariant": "TEAMS"
+          },
+          "amsreferences": []
+        },
+        {
+          "id": "1738000800000",
+          "displayName": null,
+          "originalarrivaltime": "2026-01-28T09:35:00.000Z",
+          "messagetype": "RichText/Html",
+          "version": 1738000800000,
+          "content": "<p>OK let's start with BD OTP. Opening test now.</p>",
+          "conversationid": "19:uni01_abc123def456ghi789jkl012mno345pqr678stu901@thread.v2",
+          "from": "8:live:.cid.fa0eecbg590fa001",
+          "properties": {
+            "importedBy": {
+              "RawValue": "8:live:.cid.fa0eecbg590fa001"
+            },
+            "cards": [],
+            "links": "[]",
+            "files": "[]",
+            "formatVariant": "TEAMS"
+          },
+          "amsreferences": []
+        },
+        {
+          "id": "1738000900000",
+          "displayName": null,
+          "originalarrivaltime": "2026-01-28T09:50:00.000Z",
+          "messagetype": "RichText/Html",
+          "version": 1738000900000,
+          "content": "<p>Test delivery confirmed. Route is live. Let us know volumes.</p>",
+          "conversationid": "19:uni01_abc123def456ghi789jkl012mno345pqr678stu901@thread.v2",
+          "from": null,
+          "properties": {
+            "importedBy": {
+              "RawValue": "8:live:.cid.bbb222ccc333ddd4"
+            },
+            "cards": [],
+            "links": "[]",
+            "files": "[]",
+            "formatVariant": "TEAMS"
+          },
+          "amsreferences": []
+        }
+      ]
+    },
+    {
+      "id": "19:c82157d2b1h4647911924c20d7h9i0f2@thread.skype",
+      "displayName": "SwiftRoute / PinPoint NOC",
+      "version": 1741000000000,
+      "properties": {
+        "conversationblocked": false,
+        "lastimreceivedtime": "2026-02-25T14:30:00.000Z",
+        "consumptionhorizon": "1741000000000;1741000000000;9876543210987654321",
+        "conversationstatus": null,
+        "onetoonev2threadid": null
+      },
+      "threadProperties": {
+        "membercount": 3,
+        "members": "[\"Export Owner\",\"Unknown User\",\"NOC Agent\"]",
+        "membersBlocked": null,
+        "membersNicknames": null,
+        "topic": "SwiftRoute / PinPoint NOC",
+        "picture": null,
+        "description": null,
+        "guidelines": null,
+        "shareJoinLink": null,
+        "joiningEnabled": null,
+        "searchVisible": null,
+        "websiteText": null,
+        "websiteUrl": null,
+        "consumptionhorizons": {
+          "version": "1741000000000",
+          "consumptionhorizons": [
+            { "id": "Export Owner", "consumptionhorizon": "1740500000000;1741000000000;1740500000000" },
+            { "id": "NOC Agent", "consumptionhorizon": "1740600000000;1741000000000;1740600000000" }
+          ]
+        }
+      },
+      "MessageList": [
+        {
+          "id": "1740500001000",
+          "displayName": null,
+          "originalarrivaltime": "2026-02-15T10:00:00.000Z",
+          "messagetype": "ThreadActivity/TopicUpdate",
+          "version": 1740500001000,
+          "content": "<topicupdate><eventtime>1740500001000</eventtime><initiator>8:live:.cid.ccc333ddd444eee5</initiator><value>SwiftRoute / PinPoint NOC</value></topicupdate>",
+          "conversationid": "19:c82157d2b1h4647911924c20d7h9i0f2@thread.skype",
+          "from": null,
+          "properties": {},
+          "amsreferences": null
+        },
+        {
+          "id": "1740500100000",
+          "displayName": "NOC Agent",
+          "originalarrivaltime": "2026-02-15T10:05:00.000Z",
+          "messagetype": "RichText",
+          "version": 1740500100000,
+          "content": "Hello, we have new routes available this week",
+          "conversationid": "19:c82157d2b1h4647911924c20d7h9i0f2@thread.skype",
+          "from": null,
+          "properties": {
+            "formatVariant": "SFL"
+          },
+          "amsreferences": null
+        },
+        {
+          "id": "1740500200000",
+          "displayName": null,
+          "originalarrivaltime": "2026-02-15T10:10:00.000Z",
+          "messagetype": "RichText/Html",
+          "version": 1740500200000,
+          "content": "<p>Germany OTP SIM 0.041 — tier1, good DLR. Poland Transactional SIM 0.038. Both available now.</p>",
+          "conversationid": "19:c82157d2b1h4647911924c20d7h9i0f2@thread.skype",
+          "from": null,
+          "properties": {
+            "importedBy": {
+              "RawValue": "8:live:noc.agent.swiftroute"
+            },
+            "cards": [],
+            "links": "[]",
+            "files": "[]",
+            "formatVariant": "TEAMS",
+            "languageStamp": "languages=en:100;de:72;length:70;&detector=Bling"
+          },
+          "amsreferences": []
+        },
+        {
+          "id": "1740500300000",
+          "displayName": null,
+          "originalarrivaltime": "2026-02-15T10:20:00.000Z",
+          "messagetype": "RichText/Html",
+          "version": 1740500300000,
+          "content": "<p>Germany OTP — what's the sender type? Numeric or alpha?</p>",
+          "conversationid": "19:c82157d2b1h4647911924c20d7h9i0f2@thread.skype",
+          "from": "8:live:.cid.fa0eecbg590fa001",
+          "properties": {
+            "importedBy": {
+              "RawValue": "8:live:.cid.fa0eecbg590fa001"
+            },
+            "cards": [],
+            "links": "[]",
+            "files": "[]",
+            "formatVariant": "TEAMS"
+          },
+          "amsreferences": []
+        },
+        {
+          "id": "1740500400000",
+          "displayName": null,
+          "originalarrivaltime": "2026-02-15T10:25:00.000Z",
+          "messagetype": "RichText/Html",
+          "version": 1740500400000,
+          "content": "<p>Both numeric and alpha supported. No sender restrictions.</p>",
+          "conversationid": "19:c82157d2b1h4647911924c20d7h9i0f2@thread.skype",
+          "from": null,
+          "properties": {
+            "importedBy": {
+              "RawValue": "8:live:noc.agent.swiftroute"
+            },
+            "cards": [],
+            "links": "[]",
+            "files": "[]",
+            "formatVariant": "TEAMS"
+          },
+          "amsreferences": []
+        },
+        {
+          "id": "1740500500000",
+          "displayName": null,
+          "originalarrivaltime": "2026-02-15T10:30:00.000Z",
+          "messagetype": "RichText/Html",
+          "version": 1740500500000,
+          "content": "<p>Opening Germany OTP test. Sending 50 messages now.</p>",
+          "conversationid": "19:c82157d2b1h4647911924c20d7h9i0f2@thread.skype",
+          "from": "8:live:.cid.fa0eecbg590fa001",
+          "properties": {
+            "importedBy": {
+              "RawValue": "8:live:.cid.fa0eecbg590fa001"
+            },
+            "cards": [],
+            "links": "[]",
+            "files": "[]",
+            "formatVariant": "TEAMS"
+          },
+          "amsreferences": []
+        },
+        {
+          "id": "1740500600000",
+          "displayName": null,
+          "originalarrivaltime": "2026-02-15T11:05:00.000Z",
+          "messagetype": "RichText/Html",
+          "version": 1740500600000,
+          "content": "<p>Test results: 48/50 delivered. DLR 96%. Route confirmed live.</p>",
+          "conversationid": "19:c82157d2b1h4647911924c20d7h9i0f2@thread.skype",
+          "from": null,
+          "properties": {
+            "importedBy": {
+              "RawValue": "8:live:noc.agent.swiftroute"
+            },
+            "cards": [],
+            "links": "[]",
+            "files": "[]",
+            "formatVariant": "TEAMS"
+          },
+          "amsreferences": []
+        },
+        {
+          "id": "1740500700000",
+          "displayName": null,
+          "originalarrivaltime": "2026-02-20T09:00:00.000Z",
+          "messagetype": "RichText/Html",
+          "version": 1740500700000,
+          "content": "<p>Germany OTP DLR dropped to 60% since yesterday. Please check.</p>",
+          "conversationid": "19:c82157d2b1h4647911924c20d7h9i0f2@thread.skype",
+          "from": "8:live:.cid.fa0eecbg590fa001",
+          "properties": {
+            "importedBy": {
+              "RawValue": "8:live:.cid.fa0eecbg590fa001"
+            },
+            "cards": [],
+            "links": "[]",
+            "files": "[]",
+            "formatVariant": "TEAMS"
+          },
+          "amsreferences": []
+        },
+        {
+          "id": "1740500800000",
+          "displayName": null,
+          "originalarrivaltime": "2026-02-20T09:45:00.000Z",
+          "messagetype": "RichText/Html",
+          "version": 1740500800000,
+          "content": "<p>Confirmed issue on our side. Operator maintenance. ETA fix: 2 hours.</p>",
+          "conversationid": "19:c82157d2b1h4647911924c20d7h9i0f2@thread.skype",
+          "from": null,
+          "properties": {
+            "importedBy": {
+              "RawValue": "8:live:noc.agent.swiftroute"
+            },
+            "cards": [],
+            "links": "[]",
+            "files": "[]",
+            "formatVariant": "TEAMS"
+          },
+          "amsreferences": []
+        },
+        {
+          "id": "1740500900000",
+          "displayName": null,
+          "originalarrivaltime": "2026-02-20T12:00:00.000Z",
+          "messagetype": "RichText/Html",
+          "version": 1740500900000,
+          "content": "<p>Issue resolved. Germany OTP back to normal. DLR 94%+</p>",
+          "conversationid": "19:c82157d2b1h4647911924c20d7h9i0f2@thread.skype",
+          "from": null,
+          "properties": {
+            "importedBy": {
+              "RawValue": "8:live:noc.agent.swiftroute"
+            },
+            "cards": [],
+            "links": "[]",
+            "files": "[]",
+            "formatVariant": "TEAMS"
+          },
+          "amsreferences": []
+        }
+      ]
+    },
+    {
+      "id": "19:b71046c1a0g3536800813b09c6g8h9e7@thread.v2",
+      "displayName": "OrbitLink / ClearSend",
+      "version": 1771976757482,
+      "properties": {
+        "conversationblocked": false,
+        "lastimreceivedtime": "2026-02-23T05:59:19.955Z",
+        "consumptionhorizon": "1771737448066;1771976757361;6703080682354899282",
+        "conversationstatus": null,
+        "onetoonev2threadid": null
+      },
+      "threadProperties": {
+        "membercount": 5,
+        "members": "[\"ADMIN\",\"Unknown User\",\"Unknown User\",\"Tariq Al-Hassan\",\"Export Owner\"]",
+        "membersBlocked": null,
+        "membersNicknames": null,
+        "topic": "OrbitLink / ClearSend",
+        "picture": null,
+        "description": null,
+        "guidelines": null,
+        "shareJoinLink": null,
+        "joiningEnabled": null,
+        "searchVisible": null,
+        "websiteText": null,
+        "websiteUrl": null,
+        "consumptionhorizons": {
+          "version": "1772149941937",
+          "consumptionhorizons": [
+            { "id": "ADMIN", "consumptionhorizon": "1743055231882;1743155051810;7165825348513864503" },
+            { "id": "Export Owner", "consumptionhorizon": "1743311325380;1743496559612;1743311325380" },
+            { "id": "Tariq Al-Hassan", "consumptionhorizon": "1770009330927;1771379080373;3919575014404534347" }
+          ]
+        }
+      },
+      "MessageList": [
+        {
+          "id": "1742873915263",
+          "displayName": null,
+          "originalarrivaltime": "2025-03-26T04:05:36.154Z",
+          "messagetype": "ThreadActivity/AddMember",
+          "version": 1742873915263,
+          "content": "<addmember><eventtime>1742873915263</eventtime><initiator>8:live:.cid.de774f77f7bbd730</initiator><rosterVersion>1742961935941</rosterVersion><target>8:live:.cid.de774f77f7bbd730</target><detailedtargetinfo><id>8:live:.cid.de774f77f7bbd730</id></detailedtargetinfo></addmember>",
+          "conversationid": "19:b71046c1a0g3536800813b09c6g8h9e7@thread.v2",
+          "from": null,
+          "properties": {},
+          "amsreferences": null
+        },
+        {
+          "id": "1742873915741",
+          "displayName": null,
+          "originalarrivaltime": "2025-03-26T04:05:36.580Z",
+          "messagetype": "ThreadActivity/HistoryDisclosedUpdate",
+          "version": 1742873915741,
+          "content": "<historydisclosedupdate><eventtime>1742961936579</eventtime><initiator>8:live:.cid.de774f77f7bbd730</initiator><value>True</value></historydisclosedupdate>",
+          "conversationid": "19:b71046c1a0g3536800813b09c6g8h9e7@thread.v2",
+          "from": null,
+          "properties": {},
+          "amsreferences": null
+        },
+        {
+          "id": "1743055231882",
+          "displayName": "Tariq Al-Hassan",
+          "originalarrivaltime": "2025-03-28T06:42:22.771Z",
+          "messagetype": "RichText",
+          "version": 1743055231882,
+          "content": "hey there, ",
+          "conversationid": "19:b71046c1a0g3536800813b09c6g8h9e7@thread.v2",
+          "from": null,
+          "properties": {
+            "formatVariant": "SFL"
+          },
+          "amsreferences": null
+        },
+        {
+          "id": "1743311325380",
+          "displayName": null,
+          "originalarrivaltime": "2025-03-31T05:50:36.269Z",
+          "messagetype": "ThreadActivity/TopicUpdate",
+          "version": 1743311325380,
+          "content": "<topicupdate><eventtime>1743311325380</eventtime><initiator>8:live:.cid.811b0fg52b783a5e</initiator><value>OrbitLink / ClearSend</value></topicupdate>",
+          "conversationid": "19:b71046c1a0g3536800813b09c6g8h9e7@thread.v2",
+          "from": null,
+          "properties": {},
+          "amsreferences": null
+        },
+        {
+          "id": "1769927574608",
+          "displayName": null,
+          "originalarrivaltime": "2026-02-02T07:14:45.597Z",
+          "messagetype": "RichText/Html",
+          "version": 1769927574608,
+          "content": "<p>Need Colombia Promo 0.0015~0.0018</p>",
+          "conversationid": "19:b71046c1a0g3536800813b09c6g8h9e7@thread.v2",
+          "from": null,
+          "properties": {
+            "importedBy": {
+              "RawValue": "8:live:.cid.eee555fff666ggg7"
+            },
+            "cards": [],
+            "links": "[]",
+            "files": "[]",
+            "formatVariant": "TEAMS",
+            "languageStamp": "languages=es:100;length:30;&detector=Bling"
+          },
+          "amsreferences": []
+        },
+        {
+          "id": "1770016600000",
+          "displayName": null,
+          "originalarrivaltime": "2026-02-02T07:30:00.000Z",
+          "messagetype": "RichText/Html",
+          "version": 1770016600000,
+          "content": "<p>We have Colombia Promo at 0.0017. Numeric sender only. Volume?</p>",
+          "conversationid": "19:b71046c1a0g3536800813b09c6g8h9e7@thread.v2",
+          "from": "8:live:.cid.fa0eecbg590fa001",
+          "properties": {
+            "importedBy": {
+              "RawValue": "8:live:.cid.fa0eecbg590fa001"
+            },
+            "cards": [],
+            "links": "[]",
+            "files": "[]",
+            "formatVariant": "TEAMS"
+          },
+          "amsreferences": []
+        },
+        {
+          "id": "1770009330927",
+          "displayName": null,
+          "originalarrivaltime": "2026-02-03T05:57:21.816Z",
+          "messagetype": "RichText/Html",
+          "version": 1770009330927,
+          "content": "<p>Good Day Dear <span itemtype=\"http://schema.skype.com/Mention\" itemscope=\"\" itemid=\"0\">Everyone</span></p>\r\n<p>Need Transactional direct route for Egypt Vodafone</p>",
+          "conversationid": "19:b71046c1a0g3536800813b09c6g8h9e7@thread.v2",
+          "from": null,
+          "properties": {
+            "importedBy": {
+              "RawValue": "8:live:.cid.eee555fff666ggg7"
+            },
+            "cards": [],
+            "links": "[]",
+            "files": "[]",
+            "formatVariant": "TEAMS",
+            "languageStamp": "languages=en:100;fil:74;nb:71;length:59;&detector=Bling"
+          },
+          "amsreferences": []
+        },
+        {
+          "id": "1771735629573",
+          "displayName": null,
+          "originalarrivaltime": "2026-02-23T05:29:00.462Z",
+          "messagetype": "RichText/Html",
+          "version": 1771735629573,
+          "content": "<p>We are promoting Poland direct route for Promo traffic at 0.0133. Please check and let me know if you have live traffic and want to test the route.</p>",
+          "conversationid": "19:b71046c1a0g3536800813b09c6g8h9e7@thread.v2",
+          "from": null,
+          "properties": {
+            "importedBy": {
+              "RawValue": "8:live:.cid.811b0fg52b783a5e"
+            },
+            "cards": [],
+            "links": "[]",
+            "files": "[]",
+            "formatVariant": "TEAMS",
+            "languageStamp": "languages=en:100;fil:65;nl:62;length:148;&detector=Bling"
+          },
+          "amsreferences": []
+        },
+        {
+          "id": "1771826000000",
+          "displayName": null,
+          "originalarrivaltime": "2026-02-23T05:45:00.000Z",
+          "messagetype": "RichText/Html",
+          "version": 1771826000000,
+          "content": "<p>Poland Promo — we can test. What's the DLR on recent traffic?</p>",
+          "conversationid": "19:b71046c1a0g3536800813b09c6g8h9e7@thread.v2",
+          "from": "8:live:.cid.fa0eecbg590fa001",
+          "properties": {
+            "importedBy": {
+              "RawValue": "8:live:.cid.fa0eecbg590fa001"
+            },
+            "cards": [],
+            "links": "[]",
+            "files": "[]",
+            "formatVariant": "TEAMS"
+          },
+          "amsreferences": []
+        },
+        {
+          "id": "1771737448066",
+          "displayName": null,
+          "originalarrivaltime": "2026-02-23T05:59:19.955Z",
+          "messagetype": "RichText/UriObject",
+          "version": 1771737448066,
+          "content": "<p><img itemscope=\"png\" itemtype=\"http://schema.skype.com/AMSImage\" src=\"https://us-api.asm.skype.com/v1/objects/0-jhb-d9-fake002ams003ref004/views/imgo\" width=\"1100\" height=\"250\" alt=\"image\" id=\"x_0-jhb-d9-fake002ams003ref004\" itemid=\"0-jhb-d9-fake002ams003ref004\"></p>",
+          "conversationid": "19:b71046c1a0g3536800813b09c6g8h9e7@thread.v2",
+          "from": null,
+          "properties": {
+            "importedBy": {
+              "RawValue": "8:live:.cid.811b0fg52b783a5e"
+            },
+            "cards": [],
+            "links": "[]",
+            "files": "[]",
+            "formatVariant": "TEAMS"
+          },
+          "amsreferences": ["0-jhb-d9-fake002ams003ref004"]
+        }
+      ]
+    }
+  ]
+}

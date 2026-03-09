@@ -48,12 +48,12 @@ class DataService {
             });
 
             // 2. Normalize data (creates new internal model objects)
-            const normalized = normalizeData({ conversations: filteredChats });
+            const normalized = normalizeData({ conversations: filteredChats, userId: rawData.userId });
 
             // 3. Filter out "no_identity" messages
             this.chats = normalized.map(chat => {
                 const validMessages = chat.normalizedMessages.filter(msg => msg.identity_type !== 'no_identity');
-                const MY_MRI = "8:live:.cid.YOUR_MRI_HERE";
+                const MY_MRI = rawData.userId;
                 const memberMap = new Map();
                 for (const m of validMessages) {
                     const id = m.canonical_user_id;
