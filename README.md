@@ -213,6 +213,25 @@ src/
 │   ├── dataService.js            # Data loading and integrity check
 │   └── queryProcessor.js        # Pagination and query handling
 └── server.js                     # Entry point
+tests/
+├── api/
+│   └── graphClient.ts            # API facade
+├── chats.spec.ts
+├── messages.spec.ts
+└── delta.spec.ts
+```
+
+## Testing
+
+API tests are written in Playwright with TypeScript. CI runs automatically on every push via GitHub Actions.
+
+To run locally:
+```bash
+# Terminal 1
+DATA_FILE=./src/data/sample_export_demo.json npm start
+
+# Terminal 2
+npx playwright test
 ```
 
 ## Tech stack
