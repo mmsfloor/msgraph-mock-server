@@ -77,6 +77,23 @@ Mock server running at http://localhost:3000
 Graph endpoints available at http://localhost:3000/v1.0/
 ```
 
+## Docker
+
+Build the image:
+```bash
+docker build -t verseo-mock .
+```
+
+Run with the included demo file:
+```bash
+docker run -p 3000:3000 -e DATA_FILE=./src/data/sample_export_demo.json verseo-mock
+```
+
+Run with your own export:
+```bash
+docker run -p 3000:3000 -e DATA_FILE=./src/data/your_export.json verseo-mock
+```
+
 ## Endpoints
 
 ### GET /v1.0/me/chats

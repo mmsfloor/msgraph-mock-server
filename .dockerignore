@@ -1,0 +1,11 @@
+node_modules
+.env
+excludedChats.json
+src/data/*.json
+!src/data/sample_export_demo.json
+.DS_Store
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
